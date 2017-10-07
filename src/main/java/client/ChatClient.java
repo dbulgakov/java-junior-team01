@@ -49,7 +49,9 @@ public class ChatClient {
     private static void initializeListenLogic(BufferedReader in) {
         new Thread(() -> {
             try {
-                System.out.println(in.readLine());
+                while (true) {
+                    System.out.println(in.readLine());
+                }
             } catch (IOException e) {
                 System.out.println("Error while receiving new message!");
                 e.printStackTrace();
