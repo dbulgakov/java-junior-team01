@@ -1,6 +1,7 @@
 package client;
 
 import java.io.*;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -19,14 +20,42 @@ public class ChatClient {
                         new BufferedWriter(
                                 new OutputStreamWriter(
                                         new BufferedOutputStream(
-                                                connection.getOutputStream()))))
+                                                connection.getOutputStream()))));
+
+                BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in))
         ) {
-            out.println("IT WORKS!!!!");
-            out.flush();
+
+//            initializeListenLogic(in);
+
+            while (true) {
+                String inputString = consoleInput.readLine();
+                out.println(inputString);
+
+
+            }
+
+//            out.println("IT WORKS!!!!");
+//            out.flush();
+//
+//            System.in.read();
+//            System.out.println(in.readLine());
+
         } catch (UnknownHostException e) {
             e.printStackTrace();
+        } catch (ConnectException e) {
+            System.out.println("Error while connecting to chat server!");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+//    private static void initializeListenLogic(BufferedReader in) {
+//        new Thread(() -> {
+//            try {
+//                System.out.println(in.readLine());
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//    }
 }
