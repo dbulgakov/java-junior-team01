@@ -48,9 +48,11 @@ public class Server {
                 if (message == null) break ;
                 for (BufferedWriter currentOut :clientsOuts
                      ) {
-                    currentOut.write(message);
-                    currentOut.newLine();
-                    currentOut.flush();
+                    synchronized (clientsOuts) {
+                        currentOut.write(message);
+                        currentOut.newLine();
+                        currentOut.flush();
+                    }
                 }
             }
             clientsOuts.remove(out);
