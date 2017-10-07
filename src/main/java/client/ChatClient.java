@@ -25,14 +25,13 @@ public class ChatClient {
                 BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in))
         ) {
 
-//            initializeListenLogic(in);
+            initializeListenLogic(in);
 
             while (true) {
                 String inputString = consoleInput.readLine();
                 if (CommandValidator.validateMessage(inputString)) {
                     out.println(inputString);
                     out.flush();
-                    System.out.println(in.readLine());
                 } else {
                     System.out.println("Unknown command!");
                 }
@@ -45,5 +44,15 @@ public class ChatClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void initializeListenLogic(BufferedReader in) {
+        new Thread(() -> {
+            try {
+                System.out.println(in.readLine());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
     }
 }
