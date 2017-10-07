@@ -51,6 +51,7 @@ public class ChatClient {
             try {
                 System.out.println(in.readLine());
             } catch (IOException e) {
+                System.out.println("Error while receiving new message!");
                 e.printStackTrace();
             }
         }).start();
