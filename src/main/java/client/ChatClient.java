@@ -30,8 +30,8 @@ public class ChatClient {
             while (true) {
                 String inputString = consoleInput.readLine();
                 out.println(inputString);
-
-
+                out.flush();
+                System.out.println(in.readLine());
             }
 
 //            out.println("IT WORKS!!!!");
