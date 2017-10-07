@@ -29,16 +29,14 @@ public class ChatClient {
 
             while (true) {
                 String inputString = consoleInput.readLine();
-                out.println(inputString);
-                out.flush();
-                System.out.println(in.readLine());
+                if (CommandValidator.validateMessage(inputString)) {
+                    out.println(inputString);
+                    out.flush();
+                    System.out.println(in.readLine());
+                } else {
+                    System.out.println("Unknown command!");
+                }
             }
-
-//            out.println("IT WORKS!!!!");
-//            out.flush();
-//
-//            System.in.read();
-//            System.out.println(in.readLine());
 
         } catch (UnknownHostException e) {
             e.printStackTrace();
@@ -48,14 +46,4 @@ public class ChatClient {
             e.printStackTrace();
         }
     }
-
-//    private static void initializeListenLogic(BufferedReader in) {
-//        new Thread(() -> {
-//            try {
-//                System.out.println(in.readLine());
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        });
-//    }
 }
