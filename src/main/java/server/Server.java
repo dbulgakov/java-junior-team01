@@ -45,6 +45,7 @@ public class Server {
             clientsOuts.add(out);
             while (true) {
                 String message = in.readLine();
+                if (message == null) break ;
                 for (BufferedWriter currentOut :clientsOuts
                      ) {
                     currentOut.write(message);
@@ -52,9 +53,10 @@ public class Server {
                     currentOut.flush();
                 }
             }
-
+            clientsOuts.remove(out);
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
     }
+
 }
