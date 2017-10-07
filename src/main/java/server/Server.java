@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -25,7 +26,7 @@ public class Server {
             }
 
         } catch (IOException e) {
-
+            e.printStackTrace();
         }
     }
 
@@ -50,9 +51,6 @@ public class Server {
                     currentOut.newLine();
                     currentOut.flush();
                 }
-                out.write(
-                        in.read()
-                );
             }
 
         } catch (IOException e) {
