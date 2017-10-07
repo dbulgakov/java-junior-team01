@@ -14,13 +14,15 @@ public class ChatClient {
                                 new BufferedInputStream(
                                         connection.getInputStream())));
 
-                BufferedWriter out = new BufferedWriter(
-                        new OutputStreamWriter(
-                                new BufferedOutputStream(
-                                        connection.getOutputStream())))
+
+                PrintWriter out = new PrintWriter(
+                        new BufferedWriter(
+                                new OutputStreamWriter(
+                                        new BufferedOutputStream(
+                                                connection.getOutputStream()))))
         ) {
-
-
+            out.println("IT WORKS!!!!");
+            out.flush();
         } catch (UnknownHostException e) {
             e.printStackTrace();
         } catch (IOException e) {
