@@ -22,6 +22,6 @@ public class HistoryMessage extends Message {
 
     @Override
     public void process() throws IOException {
-        getChatUser().send(history.getHistory());
+        chatUser.send(history.getHistory());
     }
 }
