@@ -28,11 +28,21 @@ public class ChatUserManager {
     public void send(String messageToSend, String roomName) throws IOException {
         clientsLock.readLock().lock();
         for (ChatUser client : clients) {
-            synchronized (client) {
-                if (client.getRoomName().equals(roomName)) {
-                    client.send(messageToSend);
-                }
+            if (client.getRoomName().equals(roomName)) {
+                client.send(messageToSend);
             }
+        }
+        clientsLock.readLock().unlock();
+    }
+
+    public void send(String messageToSend, ChatUser chatUser) throws IOException {
+        chatUser.send(messageToSend);
+    }
+
+    public void send(String messageToSend) throws IOException {
+        clientsLock.readLock().lock();
+        for (ChatUser client : clients) {
+            client.send(messageToSend);
         }
         clientsLock.readLock().unlock();
     }
@@ -76,5 +86,12 @@ public class ChatUserManager {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public void setRoomName(String roomName, ChatUser chatUser){
+        chatUser.setRoomName(roomName);
+    }
+    public String getRoomName(ChatUser chatUser){
+        return chatUser.getRoomName();
     }
 }

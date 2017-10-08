@@ -40,11 +40,15 @@ public class ChatUser {
     }
 
     public String getName() {
-        return name;
+        synchronized (name) {
+            return name;
+        }
     }
     
     public void rename(String name) throws IOException {
-        this.name = name;
+        synchronized (this.name) {
+            this.name = name;
+        }
         synchronized (out) {
             out.write("Your name is " + name);
             out.newLine();
@@ -54,10 +58,14 @@ public class ChatUser {
 
 
     public String getRoomName() {
-        return roomName;
+        synchronized (roomName) {
+            return roomName;
+        }
     }
 
     public void setRoomName(String roomName) {
-        this.roomName = roomName;
+        synchronized (this.roomName) {
+            this.roomName = roomName;
+        }
     }
 }
