@@ -11,19 +11,18 @@ public class SenderMessage extends Message {
 	private LocalDateTime dateTime;
 	
 	public SenderMessage(LocalDateTime dateTime, ChatUser chatUser, String text) {
+		super(dateTime, chatUser);
 		this.text = text;
-		this.chatUser =chatUser;
+		this.chatUser = chatUser;
 	}
 	
 	@Override
 	public String getText() {
-		return MessageFormatter.format(chatUser.getName(),dateTime,text);
+		return MessageFormatter.format(chatUser.getName(), dateTime, text);
 	}
 	
 	@Override
-	protected void process() throws IOException {
+	public void process() throws IOException {
 		chatUser.send(getText());
 	}
-	
-	
 }

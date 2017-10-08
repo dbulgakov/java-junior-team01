@@ -20,7 +20,7 @@ public class HistoryMessage extends Message {
 	}
 	
 	@Override
-	protected void process() throws IOException {
+	public void process() throws IOException {
 		getChatUser().send(history.getHistory());
 	}
 }

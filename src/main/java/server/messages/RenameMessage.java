@@ -19,7 +19,7 @@ public class RenameMessage extends Message {
 	}
 	
 	@Override
-	protected void process() throws IOException {
+	public void process() throws IOException {
 		chatUser.rename(name);
 	}
 }
