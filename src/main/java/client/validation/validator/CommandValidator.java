@@ -1,4 +1,4 @@
-package client.validation;
+package client.validation.validator;
 
 import client.validation.result.ValidationResult;
 import client.validation.string.AbstractStringValidator;
