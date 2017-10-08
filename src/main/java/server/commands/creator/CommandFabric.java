@@ -36,7 +36,7 @@ public class CommandFabric {
                 command = new ExitCommand(dateTime, chatUser, chatUserManager);
                 break;
             case "/chroom":
-                command = new ChangeRoomCommand(dateTime,chatUser,chatUserManager,"room" + text.substring(8));
+                command = new ChangeRoomCommand(dateTime,chatUser,chatUserManager,"room" + text.substring(7));
                 break;
             default:
                 command = null;
