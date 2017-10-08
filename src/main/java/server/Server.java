@@ -18,12 +18,10 @@ import java.util.function.Consumer;
  */
 public class Server {
     private static ChatUserManager chatUserManager;
-    private static History history;
 
     public static void main(String[] args) {
-        history = new History();
         chatUserManager = new ChatUserManager();
-        chatUserManager.setHistory(history);
+        chatUserManager.setHistory(new History());
         MessageFabric.setChatUserManager(chatUserManager);
 
         serverLoop(Server::clientLoop);
