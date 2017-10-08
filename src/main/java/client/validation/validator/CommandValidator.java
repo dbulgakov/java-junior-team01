@@ -42,6 +42,6 @@ public class CommandValidator implements Validator<String> {
                 new CommandStringLengthValidator(
                         MAX_COMMAND_LENGTH,
                         String.format(ERROR_DESCRIPTION_FORMAT, String.format(ERROR_COMMAND_LENGTH_FORMAT, MAX_COMMAND_LENGTH)),
-                        Collections.singletonList("/hist")));
+                        Arrays.asList("/hist", "/exit")));
     }
 }
