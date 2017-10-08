@@ -8,7 +8,6 @@ import java.time.format.DateTimeFormatter;
 
 public class SenderMessage extends Message {
 	private String text;
-	private LocalDateTime dateTime;
 	
 	public SenderMessage(LocalDateTime dateTime, ChatUser chatUser, String text) {
 		super(dateTime, chatUser);
