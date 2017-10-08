@@ -2,8 +2,7 @@ package client;
 
 /**
  * Класс служит для запуска клиентской части
- *
- * @version 1.1
+ * @version 1.0
  * @autor Team-01
  */
 public final class ChatClientLauncher {
