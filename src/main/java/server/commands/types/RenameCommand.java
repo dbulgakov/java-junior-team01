@@ -25,6 +25,8 @@ public class RenameCommand extends Command {
 
     @Override
     public void process() throws IOException {
-        if(!chatUserManager.rename(name, chatUser))chatUser.send("Name is already exist.");
+        if(!chatUserManager.rename(name, chatUser)){
+            chatUserManager.send("Name is already exist.",chatUser);
+        }
     }
 }

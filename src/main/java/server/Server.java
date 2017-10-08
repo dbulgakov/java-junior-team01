@@ -46,7 +46,7 @@ public class Server {
             ChatUser chatUser = new ChatUser(out, in);
             chatUserManager.addUser(chatUser);
             while (true) {
-                Command command = chatUser.getMessage(LocalDateTime.now());
+                Command command = chatUserManager.getCommand(LocalDateTime.now(),chatUser);
                 command.process();
             }
         } catch (IOException e) {
