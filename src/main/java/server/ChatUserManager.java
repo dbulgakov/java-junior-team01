@@ -18,10 +18,14 @@ public class ChatUserManager {
         this.clientsLock = new ReentrantReadWriteLock();
     }
 
-    public void send(String messageToSend) throws IOException {
+    public void send(String messageToSend, String roomName) throws IOException {
         clientsLock.readLock().lock();
         for (ChatUser client : clients) {
-            client.send(messageToSend);
+            synchronized (client) {
+                if(client.getRoomName().equals(roomName)) {
+                    client.send(messageToSend);
+                }
+            }
         }
         clientsLock.readLock().unlock();
     }

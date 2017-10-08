@@ -25,6 +25,6 @@ public class SenderCommand extends Command {
     @Override
     public void process() throws IOException {
         chatUserManager.getHistory().addMessage(this);
-        chatUserManager.send(getText());
+        chatUserManager.send(getText(),chatUser.getRoomName());
     }
 }

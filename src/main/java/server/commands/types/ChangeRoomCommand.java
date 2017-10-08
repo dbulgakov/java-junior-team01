@@ -8,17 +8,20 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class ChangeRoomCommand extends Command {
-    public ChangeRoomCommand(LocalDateTime dateTime, ChatUser chatUser, ChatUserManager chatUserManager) {
+    private String text;
+    public ChangeRoomCommand(LocalDateTime dateTime, ChatUser chatUser, ChatUserManager chatUserManager, String text) {
         super(dateTime, chatUser, chatUserManager);
+        this.text = text;
     }
 
     @Override
     public String getText() {
-        return null;
+        return "";
     }
 
     @Override
     public void process() throws IOException {
-
+        chatUser.setRoomName(text);
+        chatUser.send("you are in the room '" + text.substring(5) + "'");
     }
 }

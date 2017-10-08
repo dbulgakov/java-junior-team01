@@ -3,10 +3,7 @@ package server.commands.creator;
 import server.ChatUser;
 import server.ChatUserManager;
 import server.commands.Command;
-import server.commands.types.ExitCommand;
-import server.commands.types.HistoryCommand;
-import server.commands.types.RenameCommand;
-import server.commands.types.SenderCommand;
+import server.commands.types.*;
 
 import java.time.LocalDateTime;
 
@@ -21,27 +18,30 @@ public class CommandFabric {
         if (text == null) {
             return new ExitCommand(dateTime, chatUser, chatUserManager);
         }
-        String command = text.split(" ")[0];
+        String commandPrefix = text.split(" ")[0];
 
-        Command message;
+        Command command;
 
-        switch (command) {
+        switch (commandPrefix) {
             case "/snd":
-                message = new SenderCommand(dateTime, chatUser, text.substring(5), chatUserManager);
+                command = new SenderCommand(dateTime, chatUser, text.substring(5), chatUserManager);
                 break;
             case "/hist":
-                message = new HistoryCommand(dateTime, chatUser, chatUserManager);
+                command = new HistoryCommand(dateTime, chatUser, chatUserManager);
                 break;
             case "/chid":
-                message = new RenameCommand(dateTime, chatUser, text.substring(6), chatUserManager);
+                command = new RenameCommand(dateTime, chatUser, text.substring(6), chatUserManager);
                 break;
             case "/exit":
-                message = new ExitCommand(dateTime, chatUser, chatUserManager);
+                command = new ExitCommand(dateTime, chatUser, chatUserManager);
+                break;
+            case "/chroom":
+                command = new ChangeRoomCommand(dateTime,chatUser,chatUserManager,"room" + text.substring(8));
                 break;
             default:
-                message = null;
+                command = null;
                 break;
         }
-        return message;
+        return command;
     }
 }
