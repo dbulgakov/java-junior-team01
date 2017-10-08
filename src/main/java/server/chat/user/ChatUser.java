@@ -1,4 +1,4 @@
-package server.chat;
+package server.chat.user;
 
 import server.commands.Command;
 import server.commands.creator.CommandFabric;

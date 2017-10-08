@@ -1,5 +1,6 @@
-package server.chat;
+package server.chat.manager;
 
+import server.chat.user.ChatUser;
 import server.commands.Command;
 import server.history.History;
 
