@@ -20,8 +20,13 @@ public class MessageFabric {
     }
 
     public static Message getMessage(LocalDateTime dateTime, ChatUser chatUser, String text) {
+        if (text == null) {
+            return new ExitMessage(dateTime, chatUser, chatUserManager);
+        }
         String command = text.split(" ")[0];
-        Message message = null;
+
+        Message message;
+
         switch (command) {
             case "/snd":
                 message = new SenderMessage(dateTime, chatUser, text.substring(5), chatUserManager);
@@ -33,6 +38,7 @@ public class MessageFabric {
                 message = new RenameMessage(dateTime, chatUser, text.substring(6), chatUserManager);
                 break;
             case "/exit":
+                message = new ExitMessage(dateTime, chatUser, chatUserManager);
                 break;
             default:
                 message = null;
