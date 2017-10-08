@@ -3,7 +3,7 @@ package client.validation.validator;
 import client.validation.result.ValidationResult;
 import client.validation.string.AbstractStringValidator;
 import client.validation.string.PrefixStringValidator;
-import client.validation.string.StringLengthValidator;
+import client.validation.string.CommandStringLengthValidator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -33,6 +33,6 @@ public class CommandValidator implements Validator<String> {
     private List<AbstractStringValidator> initializeRules() {
         return Arrays.asList(
                 new PrefixStringValidator(supportedCommands, String.format(ERROR_DESCRIPTION_FORMAT, "Unknown command. Please, try again.")),
-                new StringLengthValidator(MAX_COMMAND_LENGTH, String.format(ERROR_DESCRIPTION_FORMAT, String.format(ERROR_COMMAND_LENGTH_FORMAT, MAX_COMMAND_LENGTH))));
+                new CommandStringLengthValidator(MAX_COMMAND_LENGTH, String.format(ERROR_DESCRIPTION_FORMAT, String.format(ERROR_COMMAND_LENGTH_FORMAT, MAX_COMMAND_LENGTH))));
     }
 }
