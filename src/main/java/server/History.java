@@ -11,20 +11,18 @@ public class History {
     private final String FILE_ADDRESS = "src" + SYS_SEP + "main" + SYS_SEP + "java" + SYS_SEP + "server";
 
     public History() {
-
         path = new File(FILE_ADDRESS,"history.txt");
         try {
-
             out = new FileWriter(path);
-
         } catch (IOException e) {
             e.printStackTrace();
         }
 
     }
+
     /*
     *  Add message to file history
-    *  @para
+    *  @param = message - object of Message interface
     * **/
     public void addMessage(String message) {
         try {out = new FileWriter(path, true);
@@ -41,6 +39,9 @@ public class History {
         }
     }
 
+    /*
+    * get string with history
+    * **/
     public String getHistory() {
         String line;
         String outputString  = "";
