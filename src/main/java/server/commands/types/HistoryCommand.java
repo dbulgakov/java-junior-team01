@@ -1,14 +1,14 @@
-package server.messages.types;
+package server.commands.types;
 
 import server.ChatUser;
 import server.ChatUserManager;
-import server.messages.Message;
+import server.commands.Command;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class HistoryMessage extends Message {
-    public HistoryMessage(LocalDateTime dateTime, ChatUser chatUser, ChatUserManager chatUserManager) {
+public class HistoryCommand extends Command {
+    public HistoryCommand(LocalDateTime dateTime, ChatUser chatUser, ChatUserManager chatUserManager) {
         super(dateTime, chatUser, chatUserManager);
     }
 

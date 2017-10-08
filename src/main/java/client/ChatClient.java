@@ -73,6 +73,7 @@ public class ChatClient {
 
     }
 
+
     private void initializeListenLogic(BufferedReader in) {
         new Thread(() -> {
             try {

@@ -1,16 +1,16 @@
-package server.messages.types;
+package server.commands.types;
 
 import server.ChatUser;
 import server.ChatUserManager;
-import server.messages.Message;
+import server.commands.Command;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class RenameMessage extends Message {
+public class RenameCommand extends Command {
     private String name;
 
-    public RenameMessage(LocalDateTime dateTime, ChatUser chatUser, String name, ChatUserManager chatUserManager) {
+    public RenameCommand(LocalDateTime dateTime, ChatUser chatUser, String name, ChatUserManager chatUserManager) {
         super(dateTime, chatUser, chatUserManager);
         this.name = name;
     }

@@ -1,6 +1,6 @@
 package server.history;
 
-import server.messages.Message;
+import server.commands.Command;
 
 import java.io.*;
 
@@ -26,13 +26,13 @@ public class History {
     }
 
     /*
-    *  Add message to file history
+    *  Add command to file history
     *  @para
     * **/
-    public void addMessage(Message message) {
+    public void addMessage(Command command) {
         try {
             out = new FileWriter(path, true);
-            String msg = message.getText() + System.lineSeparator();
+            String msg = command.getText() + System.lineSeparator();
             out.write(msg);
         } catch (IOException e) {
             e.printStackTrace();

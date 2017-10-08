@@ -1,7 +1,7 @@
 package server;
 
-import server.messages.Message;
-import server.messages.creator.MessageFabric;
+import server.commands.Command;
+import server.commands.creator.CommandFabric;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class ChatUser {
+    private String roomName = "default";
     private String name = "";
     private BufferedWriter out;
     private BufferedReader in;
@@ -27,8 +28,8 @@ public class ChatUser {
         }
     }
 
-    public Message getMessage(LocalDateTime dateTime) throws IOException {
-        return MessageFabric.getMessage(dateTime, this, in.readLine());
+    public Command getMessage(LocalDateTime dateTime) throws IOException {
+        return CommandFabric.getMessage(dateTime, this, in.readLine());
     }
 
     public void exit() {
@@ -46,5 +47,14 @@ public class ChatUser {
             out.newLine();
             out.flush();
         }
+    }
+
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
     }
 }

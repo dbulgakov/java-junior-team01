@@ -1,8 +1,8 @@
 package server;
 
 import server.history.History;
-import server.messages.Message;
-import server.messages.creator.MessageFabric;
+import server.commands.Command;
+import server.commands.creator.CommandFabric;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -22,7 +22,7 @@ public class Server {
     public static void main(String[] args) {
         chatUserManager = new ChatUserManager();
         chatUserManager.setHistory(new History());
-        MessageFabric.setChatUserManager(chatUserManager);
+        CommandFabric.setChatUserManager(chatUserManager);
 
         serverLoop(Server::clientLoop);
     }
@@ -47,8 +47,8 @@ public class Server {
             ChatUser chatUser = new ChatUser(out, in);
             chatUserManager.addUser(chatUser);
             while (true) {
-                Message message = chatUser.getMessage(LocalDateTime.now());
-                message.process();
+                Command command = chatUser.getMessage(LocalDateTime.now());
+                command.process();
             }
         } catch (IOException e) {
             e.printStackTrace();
