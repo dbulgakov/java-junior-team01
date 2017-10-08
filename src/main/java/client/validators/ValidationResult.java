@@ -26,4 +26,18 @@ public class ValidationResult {
     public void setErrors(List<String> errors) {
         this.errorDescriptions = errors;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        if (errorDescriptions != null) {
+            for (String errorDescription : errorDescriptions) {
+                sb.append(errorDescription);
+                sb.append("\n");
+            }
+        }
+
+        return sb.toString();
+    }
 }
