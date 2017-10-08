@@ -76,19 +76,17 @@ public class ChatUserManager {
         this.history = history;
     }
 
-    public boolean rename(String name, ChatUser chatUser) {
+    public boolean existName(String name) {
         for (ChatUser client : clients) {
             if (client.getName().equals(name)) {
                 return false;
             }
         }
-        try {
-            chatUser.rename(name);
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
+        return true;
+    }
+
+    public void rename(String name, ChatUser chatUser) throws IOException {
+        chatUser.rename(name);
     }
 
     public void setRoomName(String roomName, ChatUser chatUser){
