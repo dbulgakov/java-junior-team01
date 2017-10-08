@@ -11,9 +11,12 @@ public class ExitMessage extends Message {
 	}
 	
 	@Override
+	public String getText() {
+		return "";
+	}
+	
+	@Override
 	public void process() {
 		chatUser.exit();
 	}
-	
-	
 }

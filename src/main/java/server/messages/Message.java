@@ -26,6 +26,6 @@ public abstract class Message {
         return chatUser;
     }
 
-    protected abstract void process() throws IOException;
+    public abstract void process() throws IOException;
 
 }
