@@ -8,13 +8,14 @@ import java.io.*;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class ChatClient {
     private final String hostName;
     private final int port;
 
-    private final Validator<String> validator = new CommandValidator(Collections.singletonList("/snd"));
+    private final Validator<String> validator = new CommandValidator(Arrays.asList("/snd", "/hist", "/chid"));
 
     public ChatClient(String hostName, int port) {
         this.hostName = hostName;
