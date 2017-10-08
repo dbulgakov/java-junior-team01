@@ -22,6 +22,7 @@ public class SenderMessage extends Message {
 
     @Override
     public void process() throws IOException {
+        chatUserManager.getHistory().addMessage(this);
         chatUserManager.send(getText());
     }
 }
