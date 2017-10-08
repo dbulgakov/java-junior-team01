@@ -49,7 +49,7 @@ public final class Server {
 
     private static void clientLoop(Socket clientSocket) {
         try (
-                BufferedWriter out = (new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(clientSocket.getOutputStream()))));
+                BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(clientSocket.getOutputStream())));
                 BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(clientSocket.getInputStream())))) {
             ChatUser chatUser = new ChatUser(out, in);
             chatUserManager.addUser(chatUser);
