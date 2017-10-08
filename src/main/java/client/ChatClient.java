@@ -1,8 +1,8 @@
 package client;
 
-import client.validators.CommandValidator;
-import client.validators.result.ValidationResult;
-import client.validators.result.Validator;
+import client.validation.CommandValidator;
+import client.validation.result.ValidationResult;
+import client.validation.Validator;
 
 import java.io.*;
 import java.net.ConnectException;

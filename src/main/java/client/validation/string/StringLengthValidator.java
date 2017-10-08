@@ -1,4 +1,4 @@
-package client.validators.string;
+package client.validation.string;
 
 public class StringLengthValidator extends AbstractStringValidator {
     int maxStringLength;

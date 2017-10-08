@@ -1,4 +1,4 @@
-package client.validators.string;
+package client.validation.string;
 
 import java.util.List;
 

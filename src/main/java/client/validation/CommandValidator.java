@@ -1,10 +1,9 @@
-package client.validators;
+package client.validation;
 
-import client.validators.result.ValidationResult;
-import client.validators.result.Validator;
-import client.validators.string.AbstractStringValidator;
-import client.validators.string.PrefixStringValidator;
-import client.validators.string.StringLengthValidator;
+import client.validation.result.ValidationResult;
+import client.validation.string.AbstractStringValidator;
+import client.validation.string.PrefixStringValidator;
+import client.validation.string.StringLengthValidator;
 
 import java.util.Arrays;
 import java.util.List;

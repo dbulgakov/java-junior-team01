@@ -1,6 +1,6 @@
-package client.validators.result;
+package client.validation;
 
-import client.validators.result.ValidationResult;
+import client.validation.result.ValidationResult;
 
 public interface Validator<T> {
     ValidationResult validate(T valueToValidate);
