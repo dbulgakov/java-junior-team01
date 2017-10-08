@@ -2,7 +2,7 @@ package server;
 
 import server.history.History;
 import server.messages.Message;
-import server.messages.MessageFabric;
+import server.messages.creator.MessageFabric;
 
 import java.io.*;
 import java.net.ServerSocket;

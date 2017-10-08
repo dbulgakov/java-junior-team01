@@ -1,8 +1,9 @@
-package server.messages;
+package server.messages.creator;
 
 import server.ChatUser;
 import server.ChatUserManager;
 import server.history.History;
+import server.messages.Message;
 import server.messages.types.*;
 
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
 package server;
 
 import server.messages.Message;
-import server.messages.MessageFabric;
+import server.messages.creator.MessageFabric;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
