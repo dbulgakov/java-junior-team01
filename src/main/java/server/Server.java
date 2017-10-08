@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 public class Server {
+    private static final Monitor monitor = new Monitor();
     private static List<BufferedWriter> clientsOuts;
 
     public static void main(String[] args) {
@@ -46,9 +47,8 @@ public class Server {
             while (true) {
                 String message = in.readLine();
                 if (message == null) break ;
-                for (BufferedWriter currentOut :clientsOuts
-                     ) {
-                    synchronized (clientsOuts) {
+                synchronized (monitor) {
+                for (BufferedWriter currentOut :clientsOuts) {
                         currentOut.write(message);
                         currentOut.newLine();
                         currentOut.flush();
