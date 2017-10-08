@@ -1,10 +1,16 @@
 package client;
 
-/** Класс служит для запуска клиентской части
- * @autor  Team-01
+/**
+ * Класс служит для запуска клиентской части
+ *
  * @version 1.1
+ * @autor Team-01
  */
-public class ChatClientLauncher {
+public final class ChatClientLauncher {
+    private ChatClientLauncher() {
+    }
+
+
     public static void main(String[] args) {
         ChatClient chatClient = new ChatClient("localhost", 9999);
         chatClient.start();
