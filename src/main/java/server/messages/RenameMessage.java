@@ -5,21 +5,19 @@ import server.ChatUser;
 import java.io.IOException;
 import java.time.LocalDateTime;
 
-public class HistoryMessage extends Message {
-    private String history;
+public class RenameMessage extends Message {
 
-    public HistoryMessage(LocalDateTime dateTime, ChatUser chatUser, String history) {
+    public RenameMessage(LocalDateTime dateTime, ChatUser chatUser) {
         super(dateTime, chatUser);
-        this.history = history;
     }
 
     @Override
     public String getText() {
-        return history;
+        return null;
     }
 
     @Override
     protected void process() throws IOException {
-        getChatUser().send(history);
+
     }
 }

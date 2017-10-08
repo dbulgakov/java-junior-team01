@@ -1,6 +1,7 @@
 package server;
 
 import server.messages.Message;
+import server.messages.MessageFabric;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -15,7 +16,7 @@ import java.util.function.Consumer;
 public class Server {
     private static List<ChatUser> clients;
     private static ReadWriteLock clientsLock = new ReentrantReadWriteLock();
-    private static MessageFabric;
+    private static MessageFabric messageFabric = new MessageFabric();
 
     public static void main(String[] args) {
         clients = new ArrayList<>();

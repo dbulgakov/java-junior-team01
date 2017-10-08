@@ -1,4 +1,6 @@
-package server;
+package server.history;
+
+import server.messages.Message;
 
 import java.io.*;
 
@@ -12,7 +14,7 @@ public class History {
 
     public History() {
 
-        path = new File(FILE_ADDRESS,"history.txt");
+        path = new File(FILE_ADDRESS, "history.txt");
         try {
 
             out = new FileWriter(path);
@@ -22,14 +24,16 @@ public class History {
         }
 
     }
+
     /*
     *  Add message to file history
     *  @para
     * **/
-    public void addMessage(String message) {
-        try {out = new FileWriter(path, true);
-            message += System.lineSeparator();
-            out.write(message);
+    public void addMessage(Message message) {
+        try {
+            out = new FileWriter(path, true);
+            String msg = message.getText() + System.lineSeparator();
+            out.write(msg);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -43,7 +47,7 @@ public class History {
 
     public String getHistory() {
         String line;
-        String outputString  = "";
+        String outputString = "";
         try {
             in = new BufferedReader(new InputStreamReader
                     (new BufferedInputStream
