@@ -31,6 +31,27 @@ public class History {
         checkBuffer(roomName);
     }
 
+    /*
+    * Check buffer to be ready for flushing
+    **/
+    private void checkBuffer(String roomName){
+        if (buffers.get(roomName).countOfMessages >= 1000) {
+            flushBuffer(roomName);
+        }
+    }
+
+    private void flushBuffer(String roomName){
+        String fileName = roomName + "history.txt";
+        path = new File(FILE_ADDRESS, fileName);
+        try(FileWriter out = new FileWriter(path, true);) {
+            out.write(buffers.get(roomName).buffer);
+            buffers.get(roomName).countOfMessages = 0;
+            buffers.get(roomName).buffer = "";
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void flushAllBuffer(){
         for (String roomName : buffers.keySet()) {
             flushBuffer(roomName);
@@ -62,22 +83,5 @@ public class History {
         return outputString;
     }
 
-    private void checkBuffer(String roomName){
-        if (buffers.get(roomName).countOfMessages >= 1000) {
-            flushBuffer(roomName);
-        }
-    }
-
-    private void flushBuffer(String roomName){
-        String fileName = roomName + "history.txt";
-        path = new File(FILE_ADDRESS, fileName);
-        try(FileWriter out = new FileWriter(path, true);) {
-            out.write(buffers.get(roomName).buffer);
-            buffers.get(roomName).countOfMessages = 0;
-            buffers.get(roomName).buffer = "";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 }
