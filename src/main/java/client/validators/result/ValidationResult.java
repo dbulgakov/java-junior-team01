@@ -1,4 +1,4 @@
-package client.validators;
+package client.validators.result;
 
 import java.util.List;
 

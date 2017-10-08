@@ -1,5 +1,7 @@
 package client.validators;
 
+import client.validators.result.ValidationResult;
+import client.validators.result.Validator;
 import client.validators.string.AbstractStringValidator;
 import client.validators.string.PrefixStringValidator;
 import client.validators.string.StringLengthValidator;
