@@ -3,6 +3,9 @@ package server.history;
 import server.commands.Command;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class History {
 
@@ -10,17 +13,19 @@ public class History {
     private FileWriter out;
     private File path;
     private final String SYS_SEP = File.separator;
-    private final String FILE_ADDRESS = "src" + SYS_SEP + "main" + SYS_SEP + "java" + SYS_SEP + "server";
+    private final String FILE_ADDRESS = "src" + SYS_SEP + "main" + SYS_SEP + "java" + SYS_SEP + "server" + SYS_SEP + "history";
 
-    public History() {
+    /*public History() {
         path = new File(FILE_ADDRESS, "history.txt");
-    }
+    }*/
 
     /*
     *  Add command to file history
-    *  @para
+    *  @param command
     * **/
-    public void addMessage(Command command) {
+    public void addMessage(Command command, String roomName) {
+        String fileName = roomName + "history.txt";
+        path = new File(FILE_ADDRESS, fileName);
         try {
             out = new FileWriter(path, true);
             String msg = command.getText() + System.lineSeparator();
@@ -36,7 +41,13 @@ public class History {
         }
     }
 
-    public String getHistory() {
+    /*
+    *  return all history
+    **/
+    public String getHistory(String roomName) {
+        String fileName = roomName + "history.txt";
+        path = new File(FILE_ADDRESS, fileName);
+        if (!path.exists()) return "";
         String line;
         String outputString = "";
         try {
