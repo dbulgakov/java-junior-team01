@@ -15,13 +15,13 @@ public class History {
     public History() {
 
         path = new File(FILE_ADDRESS, "history.txt");
-        try {
+        /*try {
 
             out = new FileWriter(path);
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 
