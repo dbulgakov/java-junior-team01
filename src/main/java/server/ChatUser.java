@@ -31,7 +31,7 @@ public class ChatUser {
         }
     }
 
-    public Command getMessage(LocalDateTime dateTime) throws IOException {
+    public Command getCommand(LocalDateTime dateTime) throws IOException {
         return CommandFabric.getMessage(dateTime, this, in.readLine());
     }
 

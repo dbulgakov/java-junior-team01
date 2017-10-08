@@ -11,10 +11,10 @@ import java.time.LocalDateTime;
  * @autor Team-01
  */
 public class ChangeRoomCommand extends Command {
-    private String text;
+    private String roomName;
     public ChangeRoomCommand(LocalDateTime dateTime, ChatUser chatUser, ChatUserManager chatUserManager, String text) {
         super(dateTime, chatUser, chatUserManager);
-        this.text = text;
+        this.roomName = text;
     }
 
     @Override
@@ -24,8 +24,8 @@ public class ChangeRoomCommand extends Command {
 
     @Override
     public void process() throws IOException {
-        chatUser.setRoomName(text);
-        chatUser.send("you are in the room '" + text.substring(5) + "'");
-        chatUserManager.send("Info: " + chatUser.getName() + " entered room", text);
+        chatUserManager.setRoomName(roomName,chatUser);
+        chatUserManager.send("you are in the room '" + roomName.substring(5) + "'",chatUser);
+        chatUserManager.send("Info: " + chatUser.getName() + " entered room", roomName);
     }
 }

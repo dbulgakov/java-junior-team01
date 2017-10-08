@@ -1,8 +1,10 @@
 package server;
 
+import server.commands.Command;
 import server.history.History;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -92,5 +94,9 @@ public class ChatUserManager {
     }
     public String getRoomName(ChatUser chatUser){
         return chatUser.getRoomName();
+    }
+
+    public Command getCommand(LocalDateTime localDateTime,ChatUser chatUser) throws IOException {
+        return chatUser.getCommand(localDateTime);
     }
 }
