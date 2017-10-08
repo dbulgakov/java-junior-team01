@@ -1,6 +1,6 @@
 package server.history;
 
-import server.messages.Message;
+import server.messages.types.Message;
 
 import java.io.*;
 

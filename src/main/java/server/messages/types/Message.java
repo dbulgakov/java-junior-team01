@@ -1,4 +1,4 @@
-package server.messages;
+package server.messages.types;
 
 
 import server.ChatUser;

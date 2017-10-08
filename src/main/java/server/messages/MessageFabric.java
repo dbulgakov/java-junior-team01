@@ -3,6 +3,7 @@ package server.messages;
 import server.ChatUser;
 import server.ChatUserManager;
 import server.history.History;
+import server.messages.types.*;
 
 import java.time.LocalDateTime;
 

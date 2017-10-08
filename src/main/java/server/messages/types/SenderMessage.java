@@ -1,7 +1,8 @@
-package server.messages;
+package server.messages.types;
 
 import server.ChatUser;
 import server.ChatUserManager;
+import server.messages.formatter.MessageFormatter;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

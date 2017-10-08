@@ -1,15 +1,13 @@
 package server;
 
 import server.history.History;
-import server.messages.Message;
+import server.messages.types.Message;
 import server.messages.MessageFabric;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDateTime;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Consumer;
 
 /**
