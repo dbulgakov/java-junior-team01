@@ -39,11 +39,12 @@ public class ChatUser {
 		return name;
 	}
 	
-	public void setName(String name) {
+	public void rename(String name) throws IOException {
 		this.name = name;
-	}
-	
-	public void rename(String name) {
-		this.name = name;
+		synchronized (out) {
+			out.write("Name changed to " + name);
+			out.newLine();
+			out.flush();
+		}
 	}
 }
