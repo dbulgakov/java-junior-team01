@@ -4,18 +4,15 @@ import server.ChatUser;
 import server.ChatUserManager;
 import server.history.History;
 import server.messages.Message;
-import server.messages.types.*;
+import server.messages.types.ExitMessage;
+import server.messages.types.HistoryMessage;
+import server.messages.types.RenameMessage;
+import server.messages.types.SenderMessage;
 
 import java.time.LocalDateTime;
 
 public class MessageFabric {
-
-    private static History history;
     private static ChatUserManager chatUserManager;
-
-    public static void setHistory(History history) {
-        MessageFabric.history = history;
-    }
 
     public static void setChatUserManager(ChatUserManager chatUserManager) {
         MessageFabric.chatUserManager = chatUserManager;
@@ -34,7 +31,7 @@ public class MessageFabric {
                 message = new SenderMessage(dateTime, chatUser, text.substring(5), chatUserManager);
                 break;
             case "/hist":
-                message = new HistoryMessage(dateTime, chatUser, history, chatUserManager);
+                message = new HistoryMessage(dateTime, chatUser, chatUserManager);
                 break;
             case "/chid":
                 message = new RenameMessage(dateTime, chatUser, text.substring(6), chatUserManager);

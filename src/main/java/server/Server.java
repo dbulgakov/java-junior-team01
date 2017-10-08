@@ -24,7 +24,6 @@ public class Server {
         history = new History();
         chatUserManager = new ChatUserManager();
         chatUserManager.setHistory(history);
-        MessageFabric.setHistory(history);
         MessageFabric.setChatUserManager(chatUserManager);
 
         serverLoop(Server::clientLoop);
