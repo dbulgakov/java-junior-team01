@@ -6,7 +6,10 @@ import server.commands.Command;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-
+/**
+ * Класс определяет команду переименования пользователя.
+ * @autor Team-01
+ */
 public class RenameCommand extends Command {
     private String name;
 

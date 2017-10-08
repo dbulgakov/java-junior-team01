@@ -6,7 +6,10 @@ import server.commands.Command;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-
+/**
+ * Класс определяет команду изменения комнаты
+ * @autor Team-01
+ */
 public class ChangeRoomCommand extends Command {
     private String text;
     public ChangeRoomCommand(LocalDateTime dateTime, ChatUser chatUser, ChatUserManager chatUserManager, String text) {

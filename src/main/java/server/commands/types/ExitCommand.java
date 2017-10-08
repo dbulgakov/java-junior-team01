@@ -5,7 +5,10 @@ import server.ChatUserManager;
 import server.commands.Command;
 
 import java.time.LocalDateTime;
-
+/**
+ * Класс определяет команду выхода из чятика.
+ * @autor Team-01
+ */
 public class ExitCommand extends Command {
 
     public ExitCommand(LocalDateTime datetime, ChatUser chatUser, ChatUserManager chatUserManager) {
