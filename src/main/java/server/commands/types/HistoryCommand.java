@@ -14,11 +14,11 @@ public class HistoryCommand extends Command {
 
     @Override
     public String getText() {
-        return chatUserManager.getHistory().getHistory();
+        return chatUserManager.getHistory().getHistory(chatUser.getRoomName());
     }
 
     @Override
     public void process() throws IOException {
-        chatUser.send(chatUserManager.getHistory().getHistory());
+        chatUser.send(chatUserManager.getHistory().getHistory(chatUser.getRoomName()));
     }
 }
