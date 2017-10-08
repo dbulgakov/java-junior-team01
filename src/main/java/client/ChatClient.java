@@ -1,7 +1,7 @@
 package client;
 
-import client.validation.validator.CommandValidator;
 import client.validation.result.ValidationResult;
+import client.validation.validator.CommandValidator;
 import client.validation.validator.Validator;
 
 import java.io.*;
@@ -39,10 +39,12 @@ public class ChatClient {
 
                 BufferedReader consoleInput = new BufferedReader(new InputStreamReader(System.in))
         ) {
+            System.out.println("Successfully connected to " + connection.getLocalAddress() + " on port " + connection.getPort());
 
             initializeListenLogic(in);
 
             while (true) {
+
                 String inputString = consoleInput.readLine();
                 ValidationResult validationResult = validator.validate(inputString);
 
