@@ -1,5 +1,6 @@
-package server;
+package server.chat.manager;
 
+import server.chat.user.ChatUser;
 import server.commands.Command;
 import server.history.History;
 
@@ -11,7 +12,7 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * Класс управляет списком пользователей чятика в общем и каждым пользователем в частности.
- * @autor Team-01
+ * @author Team-01
  */
 public class ChatUserManager {
     private List<ChatUser> clients;
@@ -64,6 +65,7 @@ public class ChatUserManager {
         clientsLock.writeLock().lock();
         clients.remove(chatUser);
         clientsLock.writeLock().unlock();
+        chatUser.exit();
     }
 
     public History getHistory() {

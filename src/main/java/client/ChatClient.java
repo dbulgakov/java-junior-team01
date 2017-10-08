@@ -9,13 +9,16 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Arrays;
-/** Класс служит для обработки клиентской части чата.
+
+/**
+ * Класс служит для обработки клиентской части чата.
  * Обрабатывает входящие и исходящие сообщения
  * <b>hostName</> хост
  * <b>port</> порт сервера
  * <b>validator<b/>Обрабатывает корректность исходящего сообщения
- * @autor  Team-01
+ *
  * @version 1.1
+ * @autor Team-01
  */
 public class ChatClient {
     private final String hostName;
@@ -80,7 +83,7 @@ public class ChatClient {
                 while (true) {
                     String message = in.readLine();
                     if (message == null) {
-                        System.out.println("Error! Server is down!");
+                        System.out.println("Disconnected from server.");
                         System.exit(0);
                         break;
                     }
