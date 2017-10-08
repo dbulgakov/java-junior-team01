@@ -21,7 +21,7 @@ public class ChatClient {
     private final String hostName;
     private final int port;
 
-    private final Validator<String> validator = new CommandValidator(Arrays.asList("/snd", "/hist", "/chid", "/chroom"));
+    private final Validator<String> validator = new CommandValidator(Arrays.asList("/snd", "/hist", "/chid", "/chroom", "/exit"));
 
     public ChatClient(String hostName, int port) {
         this.hostName = hostName;
