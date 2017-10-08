@@ -11,7 +11,6 @@ import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * Класс управляет списком пользователей чятика в общем и каждым пользователем в частности.
- *
  * @autor Team-01
  */
 public class ChatUserManager {
