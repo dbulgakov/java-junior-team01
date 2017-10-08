@@ -1,7 +1,11 @@
 package client.validation.result;
 
 import java.util.List;
-
+/**
+ * Содержит отказы на неправильные сообщения
+ * @autor Team-01
+ * @version 1.0
+ */
 public class ValidationResult {
     private boolean isValid;
     private List<String> errorDescriptions;
