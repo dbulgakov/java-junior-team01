@@ -9,6 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/** Класс обрабатывает корректность сообщения
+ * с учетом поддерживаемых команд и ограничений на длину сообщения
+ * @autor Team-01
+ * @version 1.0
+ */
 public class CommandValidator implements Validator<String> {
     public static final int MAX_COMMAND_LENGTH = 150;
 
