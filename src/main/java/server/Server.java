@@ -30,8 +30,8 @@ public final class Server {
         chatUserManager = new ChatUserManager();
         chatUserManager.setHistory(new History());
         CommandFabric.setChatUserManager(chatUserManager);
-
         serverLoop(Server::clientLoop);
+        chatUserManager.getHistory().flushAllBuffer();
     }
 
     private static void serverLoop(Consumer<Socket> toDo) {
