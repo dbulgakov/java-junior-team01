@@ -12,7 +12,6 @@ import java.util.function.Consumer;
 
 /**
  * Класс обрабатывает серверную часть
- *
  * @version 1.1
  * @autor Team-01
  */
