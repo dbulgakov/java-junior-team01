@@ -4,7 +4,7 @@ import java.util.List;
 /**
  * Содержит отказы на неправильные сообщения
  * @autor Team-01
- * @version 1.0
+ * @version 1.1
  */
 public class ValidationResult {
     private boolean isValid;

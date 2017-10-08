@@ -2,7 +2,7 @@ package client.validation.string;
 /**
  * Проверка длинны сообщения
  * @autor Team-01
- * @version 1.0
+ * @version 1.1
  */
 public class CommandStringLengthValidator extends AbstractStringValidator {
     int maxStringLength;
