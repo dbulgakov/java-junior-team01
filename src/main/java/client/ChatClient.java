@@ -9,7 +9,14 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Arrays;
-
+/** Класс служит для обработки клиентской части чата.
+ * Обрабатывает входящие и исходящие сообщения
+ * <b>hostName</> хост
+ * <b>port</> порт сервера
+ * <b>validator<b/>Обрабатывает корректность исходящего сообщения
+ * @autor  Team-01
+ * @version 1.1
+ */
 public class ChatClient {
     private final String hostName;
     private final int port;

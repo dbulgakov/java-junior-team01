@@ -6,7 +6,10 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-
+/** Класс обрабатывает серверную часть
+ * @autor  Team-01
+ * @version 1.1
+ */
 public class Server {
     private static List<BufferedWriter> clientsOuts;
 
