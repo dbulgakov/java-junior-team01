@@ -1,7 +1,7 @@
 package server;
 
 import server.history.History;
-import server.messages.types.Message;
+import server.messages.Message;
 import server.messages.MessageFabric;
 
 import java.io.*;

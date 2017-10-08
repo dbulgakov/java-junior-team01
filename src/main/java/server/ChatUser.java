@@ -1,6 +1,6 @@
 package server;
 
-import server.messages.types.Message;
+import server.messages.Message;
 import server.messages.MessageFabric;
 
 import java.io.BufferedReader;

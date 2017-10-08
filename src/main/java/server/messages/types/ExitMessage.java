@@ -2,6 +2,7 @@ package server.messages.types;
 
 import server.ChatUser;
 import server.ChatUserManager;
+import server.messages.Message;
 
 import java.time.LocalDateTime;
 
