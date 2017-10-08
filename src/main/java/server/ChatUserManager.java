@@ -13,7 +13,7 @@ public class ChatUserManager {
     
     private ReadWriteLock clientsLock;
     private History history;
-    int userCounter = 0;
+    private int userCounter = 0;
     
     
     public ChatUserManager() {
@@ -29,7 +29,6 @@ public class ChatUserManager {
                     client.send(messageToSend);
                 }
             }
-            client.send(messageToSend);
         }
         clientsLock.readLock().unlock();
     }
