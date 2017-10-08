@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/** Класс обрабатывает корректность сообщения
+/** Класс проверяет корректность сообщения
  * с учетом поддерживаемых команд и ограничений на длину сообщения
  * @autor Team-01
  * @version 1.0

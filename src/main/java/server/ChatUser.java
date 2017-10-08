@@ -7,7 +7,10 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.time.LocalDateTime;
-
+/**
+ * Класс определяющий сущность пользователя чятика
+ * @autor Team-01
+ */
 public class ChatUser {
     private String roomName = "default";
     private String name = "";

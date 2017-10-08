@@ -6,7 +6,10 @@ import server.commands.Command;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-
+/**
+ * Класс определяет команду отображения истории.
+ * @autor Team-01
+ */
 public class HistoryCommand extends Command {
     public HistoryCommand(LocalDateTime dateTime, ChatUser chatUser, ChatUserManager chatUserManager) {
         super(dateTime, chatUser, chatUserManager);
@@ -14,11 +17,11 @@ public class HistoryCommand extends Command {
 
     @Override
     public String getText() {
-        return chatUserManager.getHistory().getHistory();
+        return chatUserManager.getHistory().getHistory(chatUser.getRoomName());
     }
 
     @Override
     public void process() throws IOException {
-        chatUser.send(chatUserManager.getHistory().getHistory());
+        chatUser.send(chatUserManager.getHistory().getHistory(chatUser.getRoomName()));
     }
 }

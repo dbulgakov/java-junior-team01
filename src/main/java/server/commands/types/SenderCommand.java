@@ -7,7 +7,10 @@ import server.commands.formatter.CommandFormatter;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-
+/**
+ * Класс определяет команду отправления сообщения.
+ * @autor Team-01
+ */
 public class SenderCommand extends Command {
     private String text;
 
@@ -24,7 +27,7 @@ public class SenderCommand extends Command {
 
     @Override
     public void process() throws IOException {
-        chatUserManager.getHistory().addMessage(this);
+        chatUserManager.getHistory().addMessage(this, chatUser.getRoomName());
         chatUserManager.send(getText(),chatUser.getRoomName());
     }
 }

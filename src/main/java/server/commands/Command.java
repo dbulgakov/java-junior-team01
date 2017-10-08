@@ -6,7 +6,10 @@ import server.ChatUserManager;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-
+/**
+ * Базовый класс команд
+ * @autor Team-01
+ */
 public abstract class Command {
     protected LocalDateTime dateTime;
     protected ChatUser chatUser;

@@ -4,7 +4,6 @@ import java.util.List;
 
 /**
  * Проверка длинны сообщения
- *
  * @version 1.1
  * @autor Team-01
  */
