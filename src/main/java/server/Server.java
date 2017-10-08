@@ -15,8 +15,8 @@ import java.util.function.Consumer;
 /**
  * Класс обрабатывает серверную часть
  *
+ * @author Team-01
  * @version 1.1
- * @autor Team-01
  */
 public final class Server {
 
@@ -48,12 +48,12 @@ public final class Server {
     }
 
     private static void clientLoop(Socket clientSocket) {
-        try (BufferedWriter out = (new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(clientSocket.getOutputStream()))));
-
-             BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(clientSocket.getInputStream())));) {
+        try (
+                BufferedWriter out = (new BufferedWriter(new OutputStreamWriter(new BufferedOutputStream(clientSocket.getOutputStream()))));
+                BufferedReader in = new BufferedReader(new InputStreamReader(new BufferedInputStream(clientSocket.getInputStream())))) {
             ChatUser chatUser = new ChatUser(out, in);
             chatUserManager.addUser(chatUser);
-            while (true) {
+            while (chatUser.isActive()) {
                 Command command = chatUserManager.getCommand(LocalDateTime.now(), chatUser);
                 command.process();
             }

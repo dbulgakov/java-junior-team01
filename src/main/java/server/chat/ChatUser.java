@@ -9,17 +9,19 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 /**
  * Класс определяющий сущность пользователя чятика
- * @autor Team-01
+ * @author Team-01
  */
 public class ChatUser {
     private String roomName = "default";
     private String name = "";
-    private BufferedWriter out;
+    private final BufferedWriter out;
     private BufferedReader in;
+    private boolean isActive;
 
     public ChatUser(BufferedWriter out, BufferedReader in) {
         this.out = out;
         this.in = in;
+        isActive = true;
     }
 
 
@@ -33,10 +35,6 @@ public class ChatUser {
 
     public Command getCommand(LocalDateTime dateTime) throws IOException {
         return CommandFabric.getMessage(dateTime, this, in.readLine());
-    }
-
-    public void exit() {
-
     }
 
     public String getName() {
@@ -56,6 +54,9 @@ public class ChatUser {
         }
     }
 
+    public void exit(){
+        isActive = false;
+    }
 
     public String getRoomName() {
         synchronized (roomName) {
@@ -67,5 +68,9 @@ public class ChatUser {
         synchronized (this.roomName) {
             this.roomName = roomName;
         }
+    }
+
+    public boolean isActive() {
+        return isActive;
     }
 }
