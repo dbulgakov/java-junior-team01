@@ -7,13 +7,16 @@ import java.time.LocalDateTime;
 public class ExitMessage extends Message {
 	
 	public ExitMessage(LocalDateTime datetime, String message, ChatUser chatUser) {
-		super(datetime, message, chatUser);
+		super(LocalDateTime.from(datetime), chatUser);
+	}
+	
+	@Override
+	public String getText() {
+		return "";
 	}
 	
 	@Override
 	public void process() {
 		chatUser.exit();
 	}
-	
-	
 }
