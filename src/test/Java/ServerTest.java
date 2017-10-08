@@ -27,14 +27,12 @@ public class ServerTest implements SysoutCaptureAndAssertionAbility {
 		//region when
 		new Thread(() -> Server.main(new String[]{})).start();
 		
-		
 		for (int i = 0; i < 10000; i++) {
 			int j = i;
 			new Thread(() -> {
 				
 				new ChatClient("localhost", 9999).start();
 			});
-			
 		}
 		//endregion
 	}
