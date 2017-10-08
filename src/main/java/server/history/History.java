@@ -7,11 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class History {
-
-    private BufferedReader in;
-    private FileWriter out;
     private File path;
-    Map buffers = new HashMap< String, BufferedRoomChat>();
+    Map< String, BufferedRoomChat> buffers = new HashMap< String, BufferedRoomChat>();
     private final String SYS_SEP = File.separator;
     private final String FILE_ADDRESS = "src" + SYS_SEP +
                                             "main" + SYS_SEP +
@@ -24,21 +21,14 @@ public class History {
     *  @param command
     * **/
     public void addMessage(Command command, String roomName) {
-        String fileName = roomName + "history.txt";
-        path = new File(FILE_ADDRESS, fileName);
-        try {
-            out = new FileWriter(path, true);
-            String msg = command.getText() + System.lineSeparator();
-            out.write(msg);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                out.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        String message = command.getText() + System.lineSeparator();
+        if (buffers.containsKey(roomName)) {
+            buffers.get(roomName).buffer += System.lineSeparator() + message;
+            buffers.get(roomName).countOfMessages++;
+        } else {
+            buffers.put(roomName, new BufferedRoomChat(1, message));
         }
+        checkBuffer(roomName);
     }
 
     /*
@@ -47,24 +37,37 @@ public class History {
     public String getHistory(String roomName) {
         String fileName = roomName + "history.txt";
         path = new File(FILE_ADDRESS, fileName);
-        if (!path.exists()) return "";
-        String line;
         String outputString = "";
-        try {
-            in = new BufferedReader(new InputStreamReader
+        if (path.exists()) {
+            String line;
+            try (BufferedReader in = new BufferedReader(new InputStreamReader
                     (new BufferedInputStream
-                            (new FileInputStream(path))));
-            while ((line = in.readLine()) != null)
-                outputString += line + System.lineSeparator();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                in.close();
+                        (new FileInputStream(path))));){
+                while ((line = in.readLine()) != null) {
+                    outputString += line + System.lineSeparator();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+        if (buffers.containsKey(roomName)){
+            outputString += buffers.get(roomName).buffer;
+        }
         return outputString;
     }
+
+    private void checkBuffer(String roomName){
+        if (buffers.get(roomName).countOfMessages >= 1000) {
+            String fileName = roomName + "history.txt";
+            path = new File(FILE_ADDRESS, fileName);
+            try(FileWriter out = new FileWriter(path, true);) {
+                out.write(buffers.get(roomName).buffer);
+                buffers.get(roomName).countOfMessages = 0;
+                buffers.get(roomName).buffer = "";
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 }
