@@ -1,14 +1,29 @@
 package client;
 
+import client.validators.CommandValidator;
+import client.validators.ValidationResult;
+import client.validators.Validator;
+
 import java.io.*;
 import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Collections;
 
 public class ChatClient {
-    public static void main(String[] args) {
+    private final String hostName;
+    private final int port;
+
+    private final Validator<String> validator = new CommandValidator(Collections.singletonList("/snd"));
+
+    public ChatClient(String hostName, int port) {
+        this.hostName = hostName;
+        this.port = port;
+    }
+
+    public void start() {
         try (
-                Socket connection = new Socket("localhost", 9999);
+                Socket connection = new Socket(hostName, port);
 
                 BufferedReader in = new BufferedReader(
                         new InputStreamReader(
@@ -29,11 +44,13 @@ public class ChatClient {
 
             while (true) {
                 String inputString = consoleInput.readLine();
-                if (CommandValidator.validateMessage(inputString)) {
+                ValidationResult validationResult = validator.validate(inputString);
+
+                if (validationResult.isValid()) {
                     out.println(inputString);
                     out.flush();
                 } else {
-                    System.out.println("Unknown command!");
+                    System.out.println(validationResult);
                 }
             }
 
@@ -44,13 +61,17 @@ public class ChatClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
-    private static void initializeListenLogic(BufferedReader in) {
+    private void initializeListenLogic(BufferedReader in) {
         new Thread(() -> {
             try {
                 while (true) {
-                    System.out.println(in.readLine());
+                    String message = in.readLine();
+                    if (message == null) break;
+
+                    System.out.println(message);
                 }
             } catch (IOException e) {
                 System.out.println("Error while receiving new message!");
