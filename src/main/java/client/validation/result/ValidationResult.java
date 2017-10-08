@@ -33,15 +33,10 @@ public class ValidationResult {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        if (errorDescriptions != null) {
-            for (String errorDescription : errorDescriptions) {
-                sb.append(errorDescription);
-                sb.append("\n");
-            }
+        if (errorDescriptions != null && errorDescriptions.size() > 0) {
+            return errorDescriptions.get(0);
+        } else {
+            return "";
         }
-
-        return sb.toString();
     }
 }
