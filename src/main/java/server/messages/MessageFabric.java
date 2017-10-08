@@ -18,13 +18,13 @@ public class MessageFabric {
 		Message message = null;
 		switch (command) {
 			case "/snd":
-				message = new SenderMessage(dateTime, chatUser, text.substring(4));
+				message = new SenderMessage(dateTime, chatUser, text.substring(5));
 				break;
 			case "/hist":
 				message = new HistoryMessage(dateTime, chatUser, history);
 				break;
 			case "/chid":
-				message = new RenameMessage(dateTime, chatUser, text.substring(5));
+				message = new RenameMessage(dateTime, chatUser, text.substring(6));
 				break;
 			case "/exit":
 				break;
