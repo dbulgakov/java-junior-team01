@@ -6,18 +6,21 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 public class History {
 
     private BufferedReader in;
     private FileWriter out;
     private File path;
+    Map buffers = new HashMap< String, BufferedRoomChat>();
     private final String SYS_SEP = File.separator;
-    private final String FILE_ADDRESS = "src" + SYS_SEP + "main" + SYS_SEP + "java" + SYS_SEP + "server" + SYS_SEP + "history";
-
-    /*public History() {
-        path = new File(FILE_ADDRESS, "history.txt");
-    }*/
+    private final String FILE_ADDRESS = "src" + SYS_SEP +
+                                            "main" + SYS_SEP +
+                                                "java" + SYS_SEP +
+                                                    "server" + SYS_SEP
+                                                        + "history";
 
     /*
     *  Add command to file history
