@@ -1,7 +1,7 @@
 package server.commands.types;
 
-import server.chat.ChatUser;
-import server.chat.ChatUserManager;
+import server.chat.manager.ChatUserManager;
+import server.chat.user.ChatUser;
 import server.commands.Command;
 
 import java.io.IOException;
