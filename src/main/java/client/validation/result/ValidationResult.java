@@ -33,7 +33,7 @@ public class ValidationResult {
 
     @Override
     public String toString() {
-        if (errorDescriptions != null && errorDescriptions.size() > 0) {
+        if (errorDescriptions != null && !errorDescriptions.isEmpty()) {
             return errorDescriptions.get(0);
         } else {
             return "";
