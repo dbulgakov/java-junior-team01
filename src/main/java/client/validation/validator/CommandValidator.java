@@ -6,6 +6,7 @@ import client.validation.string.PrefixStringValidator;
 import client.validation.string.CommandStringLengthValidator;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,6 +39,9 @@ public class CommandValidator implements Validator<String> {
     private List<AbstractStringValidator> initializeRules() {
         return Arrays.asList(
                 new PrefixStringValidator(supportedCommands, String.format(ERROR_DESCRIPTION_FORMAT, "Unknown command. Please, try again.")),
-                new CommandStringLengthValidator(MAX_COMMAND_LENGTH, String.format(ERROR_DESCRIPTION_FORMAT, String.format(ERROR_COMMAND_LENGTH_FORMAT, MAX_COMMAND_LENGTH))));
+                new CommandStringLengthValidator(
+                        MAX_COMMAND_LENGTH,
+                        String.format(ERROR_DESCRIPTION_FORMAT, String.format(ERROR_COMMAND_LENGTH_FORMAT, MAX_COMMAND_LENGTH)),
+                        Collections.singletonList("/hist")));
     }
 }
