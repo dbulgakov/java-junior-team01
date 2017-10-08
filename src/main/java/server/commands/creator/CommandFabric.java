@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 public class CommandFabric {
     private static ChatUserManager chatUserManager;
 
+    private CommandFabric(){}
     public static void setChatUserManager(ChatUserManager chatUserManager) {
         CommandFabric.chatUserManager = chatUserManager;
     }
