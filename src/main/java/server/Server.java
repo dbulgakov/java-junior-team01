@@ -1,5 +1,7 @@
 package server;
 
+import server.chat.ChatUser;
+import server.chat.ChatUserManager;
 import server.commands.Command;
 import server.commands.creator.CommandFabric;
 import server.history.History;

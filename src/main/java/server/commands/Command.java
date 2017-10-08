@@ -1,8 +1,8 @@
 package server.commands;
 
 
-import server.ChatUser;
-import server.ChatUserManager;
+import server.chat.ChatUser;
+import server.chat.ChatUserManager;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

@@ -1,7 +1,7 @@
 package server.commands.creator;
 
-import server.ChatUser;
-import server.ChatUserManager;
+import server.chat.ChatUser;
+import server.chat.ChatUserManager;
 import server.commands.Command;
 import server.commands.types.*;
 
