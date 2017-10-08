@@ -19,7 +19,7 @@ public class CommandValidator implements Validator<String> {
     public static final int MAX_COMMAND_LENGTH = 150;
 
     private static final String ERROR_DESCRIPTION_FORMAT = "Error! %s";
-    private static final String ERROR_COMMAND_LENGTH_FORMAT = "Input command must be shorter than %d symbols!";
+    private static final String ERROR_COMMAND_LENGTH_FORMAT = "Invalid argument length! Argument must not be empty or larger than %d characters.";
 
     private final List<String> supportedCommands;
 
