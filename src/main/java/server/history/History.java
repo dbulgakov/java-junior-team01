@@ -15,19 +15,19 @@ public class History {
     public History() {
 
         path = new File(FILE_ADDRESS, "history.txt");
-        try {
+        /*try {
 
             out = new FileWriter(path);
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
     }
 
     /*
     *  Add message to file history
-    *  @para
+    *  @param obbject of class Message
     * **/
     public void addMessage(Message message) {
         try {
@@ -45,6 +45,9 @@ public class History {
         }
     }
 
+    /*
+    * get string with all messages
+    **/
     public String getHistory() {
         String line;
         String outputString = "";
