@@ -21,11 +21,11 @@ import java.util.function.Consumer;
 public class Server {
     private static ChatUserManager chatUserManager;
     private static History history;
-    private static ReadWriteLock clientsLock = new ReentrantReadWriteLock();
 
     public static void main(String[] args) {
-        chatUserManager = new ChatUserManager();
         history = new History();
+        chatUserManager = new ChatUserManager();
+        chatUserManager.setHistory(history);
         MessageFabric.setHistory(history);
         MessageFabric.setChatUserManager(chatUserManager);
 

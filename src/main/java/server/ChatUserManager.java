@@ -1,5 +1,7 @@
 package server;
 
+import server.history.History;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class ChatUserManager {
     private List<ChatUser> clients;
     private ReadWriteLock clientsLock;
+    private History history;
 
     public ChatUserManager() {
         this.clients = new ArrayList<>();
@@ -33,5 +36,13 @@ public class ChatUserManager {
         clientsLock.writeLock().lock();
         clients.remove(chatUser);
         clientsLock.writeLock().unlock();
+    }
+
+    public History getHistory() {
+        return history;
+    }
+
+    public void setHistory(History history) {
+        this.history = history;
     }
 }
