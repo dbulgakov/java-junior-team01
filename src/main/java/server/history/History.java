@@ -31,6 +31,12 @@ public class History {
         checkBuffer(roomName);
     }
 
+    public void flushAllBuffer(){
+        for (String roomName : buffers.keySet()) {
+            flushBuffer(roomName);
+        }
+    }
+
     /*
     *  return all history
     **/
@@ -58,15 +64,19 @@ public class History {
 
     private void checkBuffer(String roomName){
         if (buffers.get(roomName).countOfMessages >= 1000) {
-            String fileName = roomName + "history.txt";
-            path = new File(FILE_ADDRESS, fileName);
-            try(FileWriter out = new FileWriter(path, true);) {
-                out.write(buffers.get(roomName).buffer);
-                buffers.get(roomName).countOfMessages = 0;
-                buffers.get(roomName).buffer = "";
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            flushBuffer(roomName);
+        }
+    }
+
+    private void flushBuffer(String roomName){
+        String fileName = roomName + "history.txt";
+        path = new File(FILE_ADDRESS, fileName);
+        try(FileWriter out = new FileWriter(path, true);) {
+            out.write(buffers.get(roomName).buffer);
+            buffers.get(roomName).countOfMessages = 0;
+            buffers.get(roomName).buffer = "";
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
