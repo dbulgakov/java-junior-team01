@@ -1,8 +1,8 @@
 package server;
 
-import server.history.History;
 import server.commands.Command;
 import server.commands.creator.CommandFabric;
+import server.history.History;
 
 import java.io.*;
 import java.net.ServerSocket;
@@ -12,10 +12,16 @@ import java.util.function.Consumer;
 
 /**
  * Класс обрабатывает серверную часть
+ *
  * @version 1.1
  * @autor Team-01
  */
-public class Server {
+public final class Server {
+
+    private Server() {
+
+    }
+
     private static ChatUserManager chatUserManager;
 
     public static void main(String[] args) {
@@ -46,7 +52,7 @@ public class Server {
             ChatUser chatUser = new ChatUser(out, in);
             chatUserManager.addUser(chatUser);
             while (true) {
-                Command command = chatUserManager.getCommand(LocalDateTime.now(),chatUser);
+                Command command = chatUserManager.getCommand(LocalDateTime.now(), chatUser);
                 command.process();
             }
         } catch (IOException e) {
