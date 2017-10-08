@@ -9,7 +9,6 @@ import java.net.ConnectException;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class ChatClient {
     private final String hostName;
@@ -72,7 +71,11 @@ public class ChatClient {
             try {
                 while (true) {
                     String message = in.readLine();
-                    if (message == null) break;
+                    if (message == null) {
+                        System.out.println("Error! Server is down!");
+                        System.exit(0);
+                        break;
+                    }
 
                     System.out.println(message);
                 }
