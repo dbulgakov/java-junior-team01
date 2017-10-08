@@ -1,4 +1,4 @@
-package client.validation;
+package client.validation.predicate;
 
 import java.util.function.Predicate;
 

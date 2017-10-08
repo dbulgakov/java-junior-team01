@@ -1,6 +1,6 @@
 package client.validation.string;
 
-import client.validation.ExplainedPredicate;
+import client.validation.predicate.ExplainedPredicate;
 
 public abstract class AbstractStringValidator implements ExplainedPredicate<String> {
     private String failExplanation;
